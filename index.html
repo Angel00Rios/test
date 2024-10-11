@@ -12,7 +12,7 @@
             justify-content: space-around;
             width: 350px;
             background-color: #f0f0f0;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 15px;
             box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
             font-family: 'Georgia', serif;
@@ -21,10 +21,10 @@
             background-color: #333;
             border: none;
             color: white;
-            padding: 12px;
-            border-radius: 50%;
+            padding: 10px 15px;
+            border-radius: 5px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 14px;
             margin: 0 5px;
             transition: background-color 0.3s, transform 0.3s;
             width: 45px;
@@ -35,7 +35,7 @@
         }
         button:hover {
             background-color: #555;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
         .time {
             font-size: 14px;
@@ -43,15 +43,15 @@
         }
         /* Estilo para los íconos de los botones */
         .playPauseBtn::before {
-            content: '▶️';
+            content: '▶';
             font-size: 16px;
         }
         .rewindBtn::before {
-            content: '⏪';
+            content: '⏮';
             font-size: 16px;
         }
         .forwardBtn::before {
-            content: '⏩';
+            content: '⏭';
             font-size: 16px;
         }
     </style>
@@ -74,7 +74,7 @@
             player = new YT.Player('player', {
                 height: '0',
                 width: '0',
-                videoId: 'rFPlsTpsw4g', // Reemplaza con el ID del video
+                videoId: 'rFPlsTpsw4g', // Video ID proporcionado
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
@@ -113,10 +113,10 @@
             const playPauseBtn = document.getElementById('playPauseBtn');
             if (event.data == YT.PlayerState.PLAYING) {
                 isPlaying = true;
-                playPauseBtn.textContent = '⏸️';
+                playPauseBtn.textContent = '⏸';
             } else {
                 isPlaying = false;
-                playPauseBtn.textContent = '▶️';
+                playPauseBtn.textContent = '▶';
             }
         }
     </script>
