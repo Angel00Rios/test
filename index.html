@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reproductor de XV Años</title>
+    <title>Reproductor de Boda</title>
     <style>
         /* Estilos personalizados para el reproductor */
         .audio-player {
@@ -11,40 +11,48 @@
             align-items: center;
             justify-content: space-around;
             width: 350px;
-            background-color: #f9f1f7;
+            background-color: #f0f0f0;
             border-radius: 12px;
             padding: 15px;
-            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-            font-family: 'Arial', sans-serif;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Georgia', serif;
         }
         button {
-            background-color: #e91e63;
+            background-color: #333;
             border: none;
             color: white;
-            padding: 12px 15px;
+            padding: 12px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             margin: 0 5px;
             transition: background-color 0.3s, transform 0.3s;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         button:hover {
-            background-color: #d81b60;
+            background-color: #555;
             transform: scale(1.1);
         }
         .time {
             font-size: 14px;
             color: #333;
         }
-        /* Iconos personalizados para los botones */
+        /* Estilo para los íconos de los botones */
         .playPauseBtn::before {
-            content: '🎵';
+            content: '▶️';
+            font-size: 16px;
         }
         .rewindBtn::before {
             content: '⏪';
+            font-size: 16px;
         }
         .forwardBtn::before {
             content: '⏩';
+            font-size: 16px;
         }
     </style>
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -108,7 +116,7 @@
                 playPauseBtn.textContent = '⏸️';
             } else {
                 isPlaying = false;
-                playPauseBtn.textContent = '🎵';
+                playPauseBtn.textContent = '▶️';
             }
         }
     </script>
