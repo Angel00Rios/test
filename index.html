@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de YouTube</title>
+    <style>
+        /* Ocultar el video para que parezca un reproductor de audio */
+        .video-wrapper {
+            width: 300px;
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: -130px; /* Ajustar para ocultar el video */
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-wrapper">
+        <iframe width="300" height="200" 
+                src="https://www.youtube.com/embed/rFPlsTpsw4g?autoplay=0&controls=1"
+                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
