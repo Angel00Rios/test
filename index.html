@@ -3,40 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reproductor Mejorado de YouTube</title>
+    <title>Reproductor de XV Años</title>
     <style>
+        /* Estilos personalizados para el reproductor */
         .audio-player {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            width: 300px;
-            background-color: #f3f3f3;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            justify-content: space-around;
+            width: 350px;
+            background-color: #f9f1f7;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Arial', sans-serif;
         }
         button {
-            background-color: #4caf50;
+            background-color: #e91e63;
             border: none;
             color: white;
-            padding: 8px 12px;
-            border-radius: 5px;
+            padding: 12px 15px;
+            border-radius: 50%;
             cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            transition: background-color 0.3s, transform 0.3s;
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #d81b60;
+            transform: scale(1.1);
         }
         .time {
-            font-size: 12px;
+            font-size: 14px;
+            color: #333;
+        }
+        /* Iconos personalizados para los botones */
+        .playPauseBtn::before {
+            content: '🎵';
+        }
+        .rewindBtn::before {
+            content: '⏪';
+        }
+        .forwardBtn::before {
+            content: '⏩';
         }
     </style>
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
 <body>
     <div class="audio-player">
-        <button id="playPauseBtn">Play</button>
-        <button id="rewindBtn">⏪ -10s</button>
-        <button id="forwardBtn">+10s ⏩</button>
+        <button id="rewindBtn" class="rewindBtn"></button>
+        <button id="playPauseBtn" class="playPauseBtn"></button>
+        <button id="forwardBtn" class="forwardBtn"></button>
         <div class="time" id="currentTime">0:00</div>
     </div>
     <div id="player" style="display: none;"></div>
@@ -58,7 +75,6 @@
         }
 
         function onPlayerReady(event) {
-            // Inicializa el botón de reproducción/pausa
             const playPauseBtn = document.getElementById('playPauseBtn');
             playPauseBtn.addEventListener('click', () => {
                 if (isPlaying) {
@@ -68,7 +84,6 @@
                 }
             });
 
-            // Botones de adelantar y retroceder
             const rewindBtn = document.getElementById('rewindBtn');
             const forwardBtn = document.getElementById('forwardBtn');
             rewindBtn.addEventListener('click', () => {
@@ -78,7 +93,6 @@
                 player.seekTo(player.getCurrentTime() + 10, true);
             });
 
-            // Actualiza el tiempo de reproducción
             setInterval(() => {
                 const currentTimeDisplay = document.getElementById('currentTime');
                 const minutes = Math.floor(player.getCurrentTime() / 60);
@@ -91,10 +105,10 @@
             const playPauseBtn = document.getElementById('playPauseBtn');
             if (event.data == YT.PlayerState.PLAYING) {
                 isPlaying = true;
-                playPauseBtn.textContent = 'Pause';
+                playPauseBtn.textContent = '⏸️';
             } else {
                 isPlaying = false;
-                playPauseBtn.textContent = 'Play';
+                playPauseBtn.textContent = '🎵';
             }
         }
     </script>
